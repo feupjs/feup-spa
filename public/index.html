@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://s.feup.cn/assets/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link
+      rel="apple-touch-icon"
+      href="https://s.feup.cn/assets/apple-touch-icon.png"
+    />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>FEUP SPA React App</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- test环境 -->
+    <% if ( htmlWebpackPlugin.options.CONFIG.FEUP === 'test') { %>
+
+      <% } %>
+  
+    <!-- 正式环境 -->
+    <% if ( htmlWebpackPlugin.options.CONFIG.FEUP === 'prod'|| htmlWebpackPlugin.options.CONFIG.FEUP === 'pre' ) { %>
+
+
+      <% } %>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+<% if(htmlWebpackPlugin.options.CONFIG.FEUP === 'test'||htmlWebpackPlugin.options.CONFIG.FEUP
+=== 'pre') { %>
+<script src="//cdn.jsdelivr.net/npm/eruda@2.4.1/eruda.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/eruda-dom@2.0.0/eruda-dom.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/eruda-fps@2.0.0/eruda-fps.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/eruda-code@2.0.0/eruda-code.min.js"></script>
+<script>
+  const isPc = () => {
+    const ua = navigator.userAgent;
+    if (
+      /AppleWebKit.*Mobile/i.test(ua) ||
+      /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(
+        ua,
+      )
+    ) {
+      return !/Android|webOS|iPhone|iPod|BlackBerry|iPad/i.test(ua);
+    }
+    return true;
+  };
+  if (!isPc()) {
+    eruda.init({
+      useShadowDom: true,
+    });
+    eruda.add(erudaDom);
+    eruda.add(erudaFps);
+    eruda.add(erudaCode);
+  }
+</script>
+<% } %>
