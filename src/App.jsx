@@ -18,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <ConfigProvider locale={zhCn} prefixCls={systemName}>
+      <ConfigProvider locale={zhCn} prefixCls={'feup-spa'}>
         <Provider store={store}>
           <BrowserRouter>
             <Routes />

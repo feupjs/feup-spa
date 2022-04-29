@@ -12,7 +12,7 @@ export default class Home extends Component {
               <Link to="/about">tap about</Link>
             </Button>
             <Button type="primary">
-              <Link to="/store">tap store</Link>
+              <Link to="/store">Store 使用示例</Link>
             </Button>
             FEUP SPA 脚手架 v1.0： 化繁为简！
           </Space>
