@@ -5,7 +5,7 @@ const PrivateRoute = ({ component: Component, redirect, location, ...rest }) => 
   return (
     <Route
       {...rest}
-      render={props => {
+      render={(props) => {
         if (redirect) {
           return <Redirect to={redirect} />;
         }

@@ -6,7 +6,7 @@ import { routeData } from './routeData';
 import { isMobile } from '../utils/toolTypes/browser_utls';
 
 const isH5Flag = isMobile();
-const NoMatch = () => import('../components/Layout/404.js');
+const NoMatch = () => import('../components/Layout/404');
 
 export default () => (
   <Switch>
